@@ -1,8 +1,11 @@
 from flask import Flask, render_template, Response, redirect, url_for, escape, request, make_response, Response, session, abort, g, flash, _app_ctx_stack, send_file, jsonify
 from flask_redis import FlaskRedis
-app = Flask(__name__)
 
 REDIS_URL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.com:9285/"
+
+app = Flask(__name__)
+redis_client = FlaskRedis(app)
+
 
 @app.route('/', defaults={'path': ''})
 
