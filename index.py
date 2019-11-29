@@ -5,7 +5,12 @@ app = Flask(__name__)
 
 @app.route('/dailyjson', methods=['GET', 'POST'])
 def daily__json():
-    return Response("It's the daily stuff")
+#    return Response("It's the daily stuff")
+    if request.method == 'GET':
+        prms = {
+        }
+        resp = make_response( render_template('index.html',**prms), 200 )
+        return resp
 
 @app.route('/<path:path>')
 def catch_all(path):
