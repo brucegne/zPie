@@ -1,4 +1,4 @@
-from flask import Flask, rendor_template, Response, redirect, url_for, escape, request, make_response, Response, session, abort, g, flash, _app_ctx_stack, send_file, jsonify
+from flask import Flask, render_template, Response, redirect, url_for, escape, request, make_response, Response, session, abort, g, flash, _app_ctx_stack, send_file, jsonify
 app = Flask(__name__)
 
 @app.route('/', defaults={'path': ''})
