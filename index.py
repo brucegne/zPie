@@ -7,9 +7,9 @@ app = Flask(__name__)
 redis_client = FlaskRedis(app)
 
 
-@app.route('/', defaults={'path': ''})
+# @app.route('/', defaults={'path': ''})
 
-@app.route('/dailyjson', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def daily__json():
 #    return Response("It's the daily stuff")
     if request.method == 'GET':
