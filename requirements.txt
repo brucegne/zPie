@@ -1,4 +1,4 @@
 flask==1.0.2
 flask-redis==0.4.0
 requests==2.22.0
-firebase==3.0.1
+airtable-python-wrapper==0.12.0
