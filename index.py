@@ -5,7 +5,7 @@ REDIS_URL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.c
 # API keyE1hUaiUcOSiqc7
 # BASE ID appOEjuG867PcJetu
 from airtable import airtable
-at = airtable.Airtable('appOEjuG867PcJetu', keyE1hUaiUcOSiqc7')
+at = airtable.Airtable('appOEjuG867PcJetu', 'keyE1hUaiUcOSiqc7')
 
 
 app = Flask(__name__)
