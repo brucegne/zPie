@@ -31,7 +31,7 @@ def air_fetch():
     result = { "records": [] }
     for r in self.at.iterate(self.table, fields=fields):
         result["records"].append(r)
-    return result
+    return Response(result)
 
 @app.route('/<path:path>')
 def catch_all(path):
