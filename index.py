@@ -30,7 +30,7 @@ def daily__json():
 def air_fetch():
     at.get('Family')
     result = { "records": [] }
-    for r in self.at.iterate(self.table, fields=fields):
+    for r in self.at.iterate('Family'):
         result["records"].append(r)
     return json.dumps(result)
 
