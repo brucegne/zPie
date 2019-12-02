@@ -29,7 +29,7 @@ def daily__json():
 def air_fetch():
     at.get('Family')
     for r in self.at.iterate(self.Family):
-        print (r)
+        print(r)
                        
 @app.route('/<path:path>')
 def catch_all(path):
