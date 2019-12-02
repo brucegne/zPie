@@ -28,9 +28,11 @@ def daily__json():
 @app.route('/air')
 def air_fetch():
     at.get('Family')
-    for r in self.at.iterate(self.Family):
-       return r
-                       
+    result = { "records": [] }
+    for r in self.at.iterate(self.table, fields=fields):
+        result["records"].append(r)
+    return result
+
 @app.route('/<path:path>')
 def catch_all(path):
     return Response("<h1>Flask on Now</h1><p>You visited: /%s</p>" % (path), mimetype="text/html")
