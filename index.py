@@ -1,5 +1,6 @@
 from flask import Flask, render_template, Response, redirect, url_for, escape, request, make_response, Response, session, abort, g, flash, _app_ctx_stack, send_file, jsonify
 from flask_redis import FlaskRedis
+import json, os
 
 REDIS_URL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.com:9285/"
 # API keyE1hUaiUcOSiqc7
@@ -31,7 +32,7 @@ def air_fetch():
     result = { "records": [] }
     for r in self.at.iterate(self.table, fields=fields):
         result["records"].append(r)
-    return Response(result)
+    return json.dumps(result)
 
 @app.route('/<path:path>')
 def catch_all(path):
