@@ -2,11 +2,12 @@ from flask import Flask, render_template, Response, redirect, url_for, escape, r
 from flask_redis import FlaskRedis
 import json, os
 
+r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
+
 REDIS_URL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.com:9285/"
+
 # API keyE1hUaiUcOSiqc7
 # BASE ID appOEjuG867PcJetu
-from airtable import airtable
-at = airtable.Airtable('appOEjuG867PcJetu', 'keyE1hUaiUcOSiqc7')
 
 
 app = Flask(__name__)
