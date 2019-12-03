@@ -1,27 +1,20 @@
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<body>
-
-<div ng-app="myApp" ng-controller="customersCtrl"> 
-{{ names }}
-<!--  
-<table>
-  <tr ng-repeat="cont in names">
-    <td>{{ cont.name }}</td>
-    <td>{{ cont.age }}</td>
-  </tr>
-</table>
--->
-</div>
-
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-var app = angular.module('myApp', []);
-app.controller('customersCtrl', function($scope, $http) {
-    $http.get("https://zpie.now.sh/json")
-    .then(function (response) {$scope.names = response.data.records;});
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#div1").load("https://zpie.now.sh/json");
+    });
 });
 </script>
+</head>
+<body>
+
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+
+<button>Get External Content</button>
 
 </body>
 </html>
