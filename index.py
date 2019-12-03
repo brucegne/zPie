@@ -24,6 +24,12 @@ def daily__json():
         resp = make_response( render_template('index.html',**prms), 200 )
         return resp
 
+@app.route('/angle', methods=['GET', 'POST'])
+def daily__json():
+    prms={}
+    resp = make_response( render_template('ang.html',**prms), 200 )
+    return resp
+
 @app.route('/json')
 def red_json():
     basisOut = []
