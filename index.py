@@ -27,14 +27,25 @@ def daily__json():
         resp = make_response( render_template('index.html',**prms), 200 )
         return resp
 
-@app.route('/air')
-def air_fetch():
-    at.get('Family')
-    result = { "records": [] }
-    for r in self.at.iterate('Family'):
-        result["records"].append(r)
-    return json.dumps(result)
-
+@app.route('json')
+def redjson():
+      basisOut = []
+      basisArray = {}
+      r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
+      rkeys=r.hkeys('Contacts')
+      for kv in rkeys:
+          kv=kv.decode('utf-8')
+          row=r.hget('Contacts',kv)
+          row = row.decode('utf-8')
+          rowOut = {}
+          rowOut['name'] = row['name']
+          rowOut['age'] = row['age']
+          basisOut.append(rowOut)
+      basisArray['records'] = basisOut
+#      retVal = "%s(%s)" % (callback,json.dumps(basisArray))
+      retVal = json.dumps(basisArray)
+      return(retVal) 
+    
 @app.route('/<path:path>')
 def catch_all(path):
     return Response("<h1>Flask on Now</h1><p>You visited: /%s</p>" % (path), mimetype="text/html")
