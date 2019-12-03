@@ -25,7 +25,7 @@ def daily__json():
         return resp
 
 @app.route('/angle', methods=['GET', 'POST'])
-def daily__json():
+def ang_temp():
     prms={}
     resp = make_response( render_template('ang.html',**prms), 200 )
     return resp
