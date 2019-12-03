@@ -24,8 +24,8 @@ def daily__json():
         resp = make_response( render_template('index.html',**prms), 200 )
         return resp
 
-@app.route('json')
-def redjson():
+@app.route('/json')
+def red_json():
       basisOut = []
       basisArray = {}
       r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
