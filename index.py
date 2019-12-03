@@ -26,22 +26,23 @@ def daily__json():
 
 @app.route('/json')
 def red_json():
-      basisOut = []
-      basisArray = {}
-      r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
-      rkeys=r.hkeys('Contacts')
-      for kv in rkeys:
-          kv=kv.decode('utf-8')
-          row=r.hget('Contacts',kv)
-          row = row.decode('utf-8')
-          rowOut = {}
-          rowOut['name'] = row['name']
-          rowOut['age'] = row['age']
-          basisOut.append(rowOut)
-      basisArray['records'] = basisOut
+    basisOut = []
+    basisArray = {}
+    r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
+    rkeys=r.hkeys('Contacts')
+    for kv in rkeys:
+      kv=kv.decode('utf-8')
+      row=r.hget('Contacts',kv)
+      row = row.decode('utf-8')
+      row=json.loads(row)
+      rowOut = {}
+      rowOut['name'] = row['name']
+      rowOut['age'] = row['age']
+      basisOut.append(rowOut)
+    basisArray['records'] = basisOut
 #      retVal = "%s(%s)" % (callback,json.dumps(basisArray))
-      retVal = json.dumps(basisArray)
-      return(retVal) 
+    retVal = json.dumps(basisArray)
+    return(retVal) 
     
 @app.route('/<path:path>')
 def catch_all(path):
