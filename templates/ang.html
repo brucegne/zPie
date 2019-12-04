@@ -4,15 +4,14 @@
 <body>
 
 <div ng-app="myApp" ng-controller="customersCtrl"> 
-
-<table>
 {% raw %}
+<table>
   <tr ng-repeat="x in names">
     <td>{{ x.mame }}</td>
     <td>{{ x.age }}</td>
   </tr>
 </table>
-
+{% endraw %}
 </div>
 
 <script>
