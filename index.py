@@ -42,8 +42,10 @@ def red_json():
       row = row.decode('utf-8')
       row=json.loads(row)
       rowOut = {}
+      rowOut['created'] = row['created']
       rowOut['name'] = row['name']
       rowOut['age'] = row['age']
+      rowOut['married'] = row['married']
       basisOut.append(rowOut)
     basisArray['records'] = basisOut
 #      retVal = "%s(%s)" % (callback,json.dumps(basisArray))
