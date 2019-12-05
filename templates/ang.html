@@ -14,7 +14,11 @@
 </div>
 
 <script>
-var app = angular.module('myApp', []);
+var myApp = angular.module('myApp', [], function($interpolateProvider) {
+    $interpolateProvider.startSymbol('[[');
+    $interpolateProvider.endSymbol(']]');
+});  
+
 app.controller('customersCtrl', function($scope, $http) {
     $http.get("customers.php")
     .then(function (response) {$scope.names = response.data.records;});
