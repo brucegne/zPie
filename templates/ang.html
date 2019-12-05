@@ -19,7 +19,7 @@ app = angular.module('myApp', [], function($interpolateProvider) {
 });  
 
 app.controller('customersCtrl', function($scope, $http) {
-    $http.get("customers.php")
+    $http.get("https://zpie.zeit.sh/json")
     .then(function (response) {$scope.names = response.data.records;});
 });
 </script>
