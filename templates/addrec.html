@@ -5,7 +5,7 @@
 
 <div ng-app="myApp" ng-controller="formCtrl">
   <form novalidate>
-  	<input type="hidden" ng-model="{{ created }}" />
+  	<input type="hidden" ng-model="[[ created ]]" />
     Name:<br>
     <input type="text" ng-model="user.name"><br>
     Age:<br>
@@ -14,12 +14,17 @@
     <button ng-click="reset()">RESET</button>
     <button ng-click="submit()">Submit</button>
   </form>
-  <p>form = {{user}}</p>
-  <p>master = {{master}}</p>
+  <p>form = [[user]]</p>
+  <p>master = [[master]]</p>
 </div>
 
 <script>
-var app = angular.module('myApp', []);
+
+app = angular.module('myApp', [], function($interpolateProvider) {
+    $interpolateProvider.startSymbol('[[');
+    $interpolateProvider.endSymbol(']]');
+});  
+  
 app.controller('formCtrl', function($scope) {
     $scope.master = {created:"12345678", name:"John", age:"32"};
     $scope.reset = function() {
