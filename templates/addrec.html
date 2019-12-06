@@ -5,7 +5,7 @@
 
 <div ng-app="myApp" ng-controller="formCtrl">
   <form novalidate>
-  	<input type="hidden" ng-model="[[ created ]]" />
+  	<input type="hidden" ng-model="user.createdcreated" />
     Name:<br>
     <input type="text" ng-model="user.name"><br>
     Age:<br>
@@ -26,7 +26,7 @@ app = angular.module('myApp', [], function($interpolateProvider) {
 });  
   
 app.controller('formCtrl', function($scope) {
-    $scope.master = {created:"12345678", name:"John", age:"32"};
+    $scope.master = {created:{{ created }}, name:"John", age:"32"};
     $scope.reset = function() {
         $scope.user = angular.copy($scope.master);
     };
