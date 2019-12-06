@@ -30,6 +30,14 @@ def ang_temp():
     resp = make_response( render_template('ang.html',**prms), 200 )
     return resp
 
+@app.route('/addrec', methods=['GET'])
+def add_rec():
+    prms={
+        created: int(time.time())
+    }
+    resp = make_response( render_template('addrec.html',**prms), 200 )
+    return resp
+
 @app.route('/json')
 def red_json():
     basisOut = []
