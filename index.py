@@ -33,7 +33,7 @@ def ang_temp():
 @app.route('/addrec', methods=['GET'])
 def add_rec():
     prms={
-        created: int(time.time())
+        "created": str(int(time.time()))
     }
     resp = make_response( render_template('addrec.html',**prms), 200 )
     return resp
