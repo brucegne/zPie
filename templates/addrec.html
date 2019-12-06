@@ -32,9 +32,14 @@ app.controller('formCtrl', function($scope) {
     };
     $scope.reset();
     $scope.submit = function() {
-    	alert(JSON.stringify($scope.user));
+    var req = {
+     method: 'POST',
+     url: '/adddata',
+     data: JSON.stringify($scope.user)
     }
+    $http(req).then(function(){alert("Posted")};    
 });
+  
 </script>
 
 </body>
