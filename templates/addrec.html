@@ -25,7 +25,7 @@ app = angular.module('myApp', [], function($interpolateProvider) {
     $interpolateProvider.endSymbol(']]');
 });  
   
-app.controller('formCtrl', function($scope) {
+app.controller('formCtrl', function($scope,$http) {
     $scope.master = {created:{{ created }}, name:"John", age:"32"};
                
     $scope.reset = function() {
