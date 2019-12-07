@@ -42,7 +42,7 @@ def add_rec():
 @app.route('/adddata', methods=['POST'])
 def add_data():
     req_data = request.get_json();   
-    return req_data;
+    return req_data['name'];
 
 @app.route('/json')
 def red_json():
