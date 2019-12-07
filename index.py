@@ -39,6 +39,11 @@ def add_rec():
     resp = make_response( render_template('addrec.html',**prms), 200 )
     return resp
 
+@app.route('/adddata', methods=['POST'])
+def add_data():
+    req_data = request.get_json();   
+    return req_data;
+
 @app.route('/json')
 def red_json():
     basisOut = []
