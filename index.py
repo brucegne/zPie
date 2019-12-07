@@ -36,7 +36,7 @@ def add_rec():
     prms={
         "created": str(int(time.time()))
     }
-    resp = make_response( render_template('addrec.html',**prms), 200 )
+    resp = make_response( render_template('addtest.html',**prms), 200 )
     return resp
 
 @app.route('/adddata', methods=['POST'])
