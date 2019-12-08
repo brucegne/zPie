@@ -47,7 +47,7 @@ def add_data():
     recOut={}
     recOut['created'] = request.form['created']
     recOut['name'] = request.form['name']
-    recOut['age'] = request_form['age']
+    recOut['age'] = request.form['age']
     r.hset('Contacts',kv,recOut)
     return req_data['created']
 
