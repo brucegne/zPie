@@ -52,7 +52,7 @@ def add_data():
     r.hset('Contacts',kv,data)
     return redirect("/angle", code=302)
 
-@app.route('/deldata', method=['GET'])
+@app.route('/deldata', methods=['GET'])
 def del_data():
     kv=req.args.get['kv']
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
