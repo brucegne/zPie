@@ -48,7 +48,7 @@ def add_data():
     recOut['created'] = request.form['created']
     recOut['name'] = request.form['name']
     recOut['age'] = request.form['age']
-    r.hset('Contacts',kv,json.dumps(recOut))
+    r.hset('Contacts',kv,json.loads(recOut))
     return req_data['created']
 
 @app.route('/json')
