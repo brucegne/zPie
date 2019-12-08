@@ -67,7 +67,7 @@ def red_json():
       rowOut['name'] = row['name']
       rowOut['age'] = row['age']
       try:
-        rowOut['married'] = row['married']:
+        rowOut['married'] = row['married']
       except:
         rowOut['married'] = "Not Set"
       basisOut.append(rowOut)
