@@ -50,8 +50,15 @@ def add_data():
     recOut['married']= 'Not Set'
     data = json.dumps(recOut)
     r.hset('Contacts',kv,data)
-    return request.form['created']
+    return redirect("/angle", code=302)
 
+@app.route('/deldata', method=['GET']
+def del_data():
+    kv=req.args.get['kv']
+    r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
+    res=r.hdel('Contacts',kv)
+    return redirect("/angle", code=302)
+           
 @app.route('/json')
 def red_json():
     basisOut = []
