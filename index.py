@@ -66,7 +66,7 @@ def red_json():
       rowOut['created'] = row['created']
       rowOut['name'] = row['name']
       rowOut['age'] = row['age']
-      rowOut['married'] = row['married'] || "Nope"
+      rowOut['married'] = row['married'] or "Nope"
       basisOut.append(rowOut)
     basisArray['records'] = basisOut
 #      retVal = "%s(%s)" % (callback,json.dumps(basisArray))
