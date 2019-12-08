@@ -41,8 +41,15 @@ def add_rec():
 
 @app.route('/adddata', methods=['POST'])
 def add_data():
-    req_data = request.get_json();   
-    return request.form['created']
+    r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
+    req_data = request.get_json();
+    kv = req_data['created']
+    recOut={}
+    recOut['created'] = req_data['created']
+    recOut['name'] = req_data['name']
+    recOut['age'] = req_data['age']
+    r.hset('Contacts',kv,recOut)
+    return '<a href="/angle">Listing</a>'
 
 @app.route('/json')
 def red_json():
