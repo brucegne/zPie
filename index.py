@@ -42,7 +42,6 @@ def add_rec():
 @app.route('/adddata', methods=['POST'])
 def add_data():
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
-    req_data = request.get_json();
     kv = request.form['created']
     recOut={}
     recOut['created'] = request.form['created']
@@ -51,7 +50,7 @@ def add_data():
     recOut['married']= 'Not Set'
     data = json.dumps(recOut)
     r.hset('Contacts',kv,data)
-    return req_data['created']
+    return request.form['created']
 
 @app.route('/json')
 def red_json():
