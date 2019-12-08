@@ -43,11 +43,11 @@ def add_rec():
 def add_data():
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
     req_data = request.get_json();
-    kv = 1
+    kv = request.form['created']
     recOut={}
-    recOut['created'] = req_data['created']
-    recOut['name'] = req_data['name']
-    recOut['age'] = req_data['age']
+    recOut['created'] = request.form['created']
+    recOut['name'] = request.form['name']
+    recOut['age'] = request_form['age']
     r.hset('Contacts',kv,recOut)
     return req_data['created']
 
