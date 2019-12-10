@@ -27,7 +27,7 @@ def daily__json():
         resp = make_response( render_template('index.html',**prms), 200 )
         return resp
 
-@app.route("/action", methods=[''])
+@app.route("/action", methods=['GET'])
 def action ():
     #Adding a Task
     name="Kellie Gordon"
@@ -36,6 +36,11 @@ def action ():
     pr="Huh?"
     todos.insert({ "name":name, "desc":desc, "date":date, "pr":pr, "done":"no"})
     return redirect("/")
+
+@app.route("/mdump")
+def mlab_dump():
+    res = todos.find()
+    return res
 
 @app.route('/angle', methods=['GET', 'POST'])
 def ang_temp():
