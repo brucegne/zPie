@@ -27,6 +27,16 @@ def daily__json():
         resp = make_response( render_template('index.html',**prms), 200 )
         return resp
 
+@app.route("/action", methods=[''])
+def action ():
+    #Adding a Task
+    name="Kellie Gordon"
+    desc="Baby Girl"
+    date="6/27/1995"
+    pr="Huh?"
+    todos.insert({ "name":name, "desc":desc, "date":date, "pr":pr, "done":"no"})
+    return redirect("/")
+
 @app.route('/angle', methods=['GET', 'POST'])
 def ang_temp():
     prms={}
