@@ -9,7 +9,7 @@ r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab982
 REDIS_URL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.com:9285/"
 
 client = MongoClient("mongodb://brucegne:p2shiver@ds043368.mlab.com:43368/demo") #host uri
-    db = client.mymongodb #Select the database
+db = client.mymongodb #Select the database
 todos = db.todo #Select the collection name
 
 app = Flask(__name__)
