@@ -31,7 +31,7 @@ def add_rec():
 @app.route('/modrec', methods=['GET'])
 def mod_data():
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
-    kv = request.form['created']
+    kv = request.args.get('created')
     kv=kv.decode('utf-8')
     row=r.hget('Contacts',kv)
     data = json.dumps(recOut)
