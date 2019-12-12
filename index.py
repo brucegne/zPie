@@ -32,6 +32,7 @@ def add_rec():
 def mod_data():
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
     kv = request.args.get('kv')
+    kv = kv.decode('utf-8')
     data = r.hget('Contacts',kv)
     row = json.dumps(data)
     prms={
