@@ -32,9 +32,9 @@ def ang_temp():
 @app.route('/addrec', methods=['GET'])
 def add_rec():
     prms={
-        "created": str(int(time.time()))
-        "name": row['name']
-        "age": row['age']
+        "created": str(int(time.time())),
+        "name": row['name'],
+        "age": row['age'],
         "married": row['married']        
     }
     resp = make_response( render_template('addtest.html',**prms), 200 )
@@ -48,9 +48,9 @@ def mod_data():
     row=r.hget('Contacts',kv)
     data = json.dumps(recOut)
     prms={
-        "created": row['created']
-        "name": row['name']
-        "age": row['age']
+        "created": row['created'],
+        "name": row['name'],
+        "age": row['age'],
         "married": row['married']
     }
     resp = make_response( render_template('addtest.html',**prms), 200 )
