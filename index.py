@@ -1,16 +1,11 @@
 from flask import Flask, render_template, Response, redirect, url_for, escape, request, make_response, Response, session, abort, g, flash, _app_ctx_stack, send_file, jsonify
 from bson import ObjectId
-from pymongo import MongoClient
 import json, os, redis
 import time
 
 r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
 
 REDIS_URL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.com:9285/"
-
-client = MongoClient("mongodb://brucegne:p2shiver@ds043368.mlab.com:43368/demo") #host uri
-db = client.mymongodb #Select the database
-todos = db.contacts #Select the collection name
 
 app = Flask(__name__)
 
@@ -27,22 +22,8 @@ def daily__json():
         resp = make_response( render_template('index.html',**prms), 200 )
         return resp
 
-@app.route("/action", methods=['GET'])
-def action ():
-    #Adding a Task
-    name="Kellie Gordon"
-    desc="Baby Girl"
-    date="6/27/1995"
-    pr="Huh?"
-    todos.insert({ "name":name, "desc":desc, "date":date, "pr":pr, "done":"no"})
-    return redirect("/")
-
-@app.route("/mdump")
-def mlab_dump():
-    res = todos.find()
-    return json.dumps(res)
-
-@app.route('/angle', methods=['GET', 'POST'])
+    
+@app.route('/', methods=['GET', 'POST'])
 def ang_temp():
     prms={}
     resp = make_response( render_template('ang.html',**prms), 200 )
@@ -52,29 +33,52 @@ def ang_temp():
 def add_rec():
     prms={
         "created": str(int(time.time()))
+        "name": row['name']
+        "age": row['age']
+        "married": row['married']        
     }
     resp = make_response( render_template('addtest.html',**prms), 200 )
     return resp
 
+@app.route('/moderec', methods=['GET'])
+def mod_data():
+    r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
+    kv = request.form['created']
+    kv=kv.decode('utf-8')
+    row=r.hget('Contacts',kv)
+    data = json.dumps(recOut)
+    prms={
+        "created": row['created']
+        "name": row['name']
+        "age": row['age']
+        "married": row['married']
+    }
+    resp = make_response( render_template('addtest.html',**prms), 200 )
+    return resp
+        
 @app.route('/adddata', methods=['POST'])
 def add_data():
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
     kv = request.form['created']
+    kv=kv.decode('utf-8')
+    row=r.hget('Contacts',kv)
+    row = row.decode('utf-8')
+    row=json.loads(row)
     recOut={}
-    recOut['created'] = request.form['created']
-    recOut['name'] = request.form['name']
-    recOut['age'] = request.form['age']
+    recOut['created'] = row['created']
+    recOut['name'] = rowform['name']
+    recOut['age'] = rowform['age']
     recOut['married']= 'Not Set'
     data = json.dumps(recOut)
     r.hset('Contacts',kv,data)
-    return redirect("/angle", code=302)
+    return redirect("/", code=302)
 
 @app.route('/deldata', methods=['GET'])
 def del_data():
     kv=request.args.get('kv')
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
     res=r.hdel('Contacts',kv)
-    return redirect("/angle", code=302)
+    return redirect("/", code=302)
            
 @app.route('/json')
 def red_json():
