@@ -21,9 +21,9 @@ def ang_temp():
 def add_rec():
     prms={
         "created": str(int(time.time())),
-        "name": row['name'],
-        "age": row['age'],
-        "married": row['married']        
+        "name": "",
+        "age": "",
+        "married": ""        
     }
     resp = make_response( render_template('addtest.html',**prms), 200 )
     return resp
@@ -34,7 +34,7 @@ def mod_data():
     kv = request.args.get('kv')
     kv = kv.decode('utf-8')
     data = r.hget('Contacts',kv)
-#    row = json.dumps(data)
+    row = json.dumps(data.decode('utf-8'))
     row = data
     prms={
         "created": row['created'],
