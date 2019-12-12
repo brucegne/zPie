@@ -12,18 +12,6 @@ app = Flask(__name__)
 # @app.route('/', defaults={'path': ''})
 
 @app.route('/', methods=['GET', 'POST'])
-def daily__json():
-#    return Response("It's the daily stuff")
-    if request.method == 'GET':
-        prms = {
-            "user": "Bruce E. Gordon",
-            "site": "http://appsmade4u.com"
-        }
-        resp = make_response( render_template('index.html',**prms), 200 )
-        return resp
-
-    
-@app.route('/', methods=['GET', 'POST'])
 def ang_temp():
     prms={}
     resp = make_response( render_template('ang.html',**prms), 200 )
