@@ -34,7 +34,8 @@ def mod_data():
     kv = request.args.get('kv')
     kv = kv.decode('utf-8')
     data = r.hget('Contacts',kv)
-    row = json.dumps(data)
+#    row = json.dumps(data)
+    row = data
     prms={
         "created": row['created'],
         "name": row['name'],
