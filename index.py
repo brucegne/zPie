@@ -58,9 +58,9 @@ def add_data():
 #    row = row.decode('utf-8')
 #    row=json.loads(row)
     recOut={}
-    recOut['created'] = row['created']
-    recOut['name'] = rowform['name']
-    recOut['age'] = rowform['age']
+    recOut['created'] = request.form['created']
+    recOut['name'] = request.form['name']
+    recOut['age'] = request.form['age']
     recOut['married']= 'Not Set'
     data = json.dumps(recOut)
     r.hset('Contacts',kv,data)
