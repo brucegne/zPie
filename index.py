@@ -8,6 +8,7 @@ r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab982
 REDIS_URL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.com:9285/"
 
 app = Flask(__name__)
+app.config["DEBUG"] = True"
 
 # @app.route('/', defaults={'path': ''})
 
@@ -46,7 +47,7 @@ def mod_data():
         "married": row['married']
     }
     print(prms)
-    resp = make_response( render_template('addtest.html',name=row['name'],created=row['created'],age=row['age'],married=row['married'], 200 )
+    resp = make_response( render_template('addtest.html',name=row['name'],created=row['created'])
     return resp
         
 @app.route('/adddata', methods=['POST'])
