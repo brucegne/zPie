@@ -49,7 +49,7 @@ def mod_data():
 def add_data():
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
     kv = request.form['created']
-    kv=kv.decode('utf-8')
+    kv=str(kv)
     row=r.hget('Contacts',kv)
     row = row.decode('utf-8')
     row=json.loads(row)
