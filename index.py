@@ -45,6 +45,7 @@ def mod_data():
         "age": row['age'],
         "married": row['married']
     }
+    print(prms)
     resp = make_response( render_template('addtest.html',**prms), 200 )
     return resp
         
