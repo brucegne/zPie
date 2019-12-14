@@ -40,6 +40,8 @@ def mod_data():
     print(data)
     row = json.loads(data)
 #    row = data
+    rname = row['name']
+    rcreated = row['created']
     prms={
         "created": row['created'],
         "name": row['name'],
@@ -47,7 +49,7 @@ def mod_data():
         "married": row['married']
     }
     print(prms)
-    resp = make_response( render_template('addtest.html',name=row['name'],created=row['created'])
+    resp = make_response( render_template('addtest.html',name=rname,created=rcreated)
     return resp
         
 @app.route('/adddata', methods=['POST'])
