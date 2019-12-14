@@ -33,8 +33,10 @@ def mod_data():
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
     kv = request.args.get('kv')
     kv = str(kv)
+    print(kv)
     data = r.hget('Contacts',kv)
     data = data.decode('utf-8')
+    print(data)
     row = json.dumps(data)
 #    row = data
     prms={
