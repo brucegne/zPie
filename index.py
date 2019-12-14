@@ -25,7 +25,7 @@ def add_rec():
         "age": "",
         "married": ""        
     }
-    resp = make_response( render_template('addtest.html',**prms), 200 )
+    resp = make_response( render_template('addtest.html',remote=prms), 200 )
     return resp
 
 @app.route('/modrec', methods=['GET'])
