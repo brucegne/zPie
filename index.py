@@ -46,7 +46,7 @@ def mod_data():
         "married": row['married']
     }
     print(prms)
-    resp = make_response( render_template('addtest.html',**locals()), 200 )
+    resp = make_response( render_template('addtest.html',name=row['name'],created=row['created'],age=row['age'],married=row['married'], 200 )
     return resp
         
 @app.route('/adddata', methods=['POST'])
