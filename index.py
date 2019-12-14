@@ -8,7 +8,6 @@ r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab982
 REDIS_URL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.com:9285/"
 
 app = Flask(__name__)
-app.config["DEBUG"] = True"
 
 # @app.route('/', defaults={'path': ''})
 
