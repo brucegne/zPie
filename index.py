@@ -65,7 +65,7 @@ def add_data():
     recOut['age'] = request.form['age']
     recOut['married']= request.form['married']
     data = json.dumps(recOut)
-    print data
+    print(data)
     r.hset('Contacts',kv,data)
     return redirect("/", code=302)
 
