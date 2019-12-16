@@ -21,8 +21,7 @@ def ang_temp():
 def test_post():
     name = request.args.get('name')
     print(name)
-    return jsonify(request.json)
-
+   return jsonify(request.json)
       
 @app.route('/addrec', methods=['GET'])
 def add_rec():
