@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response, redirect, url_for, escape, request, make_response, Response, session, abort, g, flash, _app_ctx_stack, send_file, jsonify
+from flask import Flask, render_template, Response, redirect, jsonify, url_for, escape, request, make_response, Response, session, abort, g, flash, _app_ctx_stack, send_file, jsonify
 from bson import ObjectId
 import json, os, redis
 import time
@@ -21,7 +21,7 @@ def ang_temp():
 def test_post():
     name = request.args.get('name')
     print(name)
-    return Response(name, status=201, mimetype='application/json')
+    return jsonify(request.json)
 
       
 @app.route('/addrec', methods=['GET'])
