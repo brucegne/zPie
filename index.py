@@ -75,7 +75,23 @@ def del_data():
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
     res=r.hdel('Contacts',kv)
     return redirect("/", code=302)
-           
+
+@app.route('/mnames')
+def red_json():
+    nameOut = []
+    nameArray = []
+    r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
+    rkeys=r.hkeys('Contacts')
+    for kv in rkeys:
+      kv=kv.decode('utf-8')
+      row=r.hget('Contacts',kv)
+      row = row.decode('utf-8')
+      row=json.loads(row)
+      nameOut.append(row['name'])
+      nameArray.append(row['created'])
+    nOut = "|".join(nameOut)
+    return(nOut)
+
 @app.route('/json')
 def red_json():
     basisOut = []
