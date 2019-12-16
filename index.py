@@ -77,7 +77,7 @@ def del_data():
     return redirect("/", code=302)
 
 @app.route('/mnames')
-def red_json():
+def mob_json():
     nameOut = []
     nameArray = []
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
