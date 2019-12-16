@@ -21,6 +21,8 @@ def ang_temp():
 def test_post():
     name = request.form.get('name')
     print(name)
+    return Response(name, status=201, mimetype='application/json')
+
       
 @app.route('/addrec', methods=['GET'])
 def add_rec():
