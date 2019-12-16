@@ -90,11 +90,7 @@ def red_json():
       nameOut.append(row['name'])
       nameArray.append(row['created'])
     data = "|".join(nameOut)
-    return(nOut)
-    response = app.response_class(response=json.dumps(data),
-                                  status=200,
-                                  mimetype='application/json')
-    return response
+    return data, 200
 
 @app.route('/json')
 def red_json():
