@@ -99,6 +99,7 @@ def red_json():
     basisArray['records'] = basisOut
 #      retVal = "%s(%s)" % (callback,json.dumps(basisArray))
     retVal = json.dumps(basisArray)
+    print(retVal)
     return(retVal) 
     
 @app.route('/<path:path>')
