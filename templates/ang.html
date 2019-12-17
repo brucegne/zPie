@@ -7,6 +7,12 @@
   </p>
 <div ng-app="myApp" ng-controller="customersCtrl"> 
 <table>
+  <tr>
+    <th>Created</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Family</th>
+  </tr>
   <tr ng-repeat="x in names">
     <td><a href="deldata?kv=[[x.created]]"><strong>X</strong></a>&nbsp;&nbsp;<a href="modrec?kv=[[x.created]]"><strong>E</strong></a>
     </td>
