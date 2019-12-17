@@ -12,7 +12,8 @@
   <a href="/addrec"><strong>Add Record</strong></a>
   </p>
 <div ng-app="myApp" ng-controller="customersCtrl"> 
-<table>
+<div class="container">
+<table class="table table-bordered">
   <tr>
     <th>&nbsp;&nbsp;</th>
     <th>Created</th>
@@ -30,7 +31,7 @@
   </tr>
 </table>
 </div>
-
+  </div>
 <script>
 app = angular.module('myApp', [], function($interpolateProvider) {
     $interpolateProvider.startSymbol('[[');
