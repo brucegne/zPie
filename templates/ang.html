@@ -39,7 +39,7 @@
     <th>Family</th>
   </tr>
   <tr ng-repeat="x in names">
-    <td><a href="deldata?kv=[[x.created]]"><strong>X</strong></a>&nbsp;&nbsp;<a href="modrec?kv=[[x.created]]"><strong>E</strong></a>
+    <td><a href="deldata?kv=[[x.created]]"><span class="glyphicon glyphicon-trash"></span></a>&nbsp;&nbsp;<a href="modrec?kv=[[x.created]]"><span class="glyphicon glyphicon-edit"></span></a>
     </td>
     <td>[[ x.created | date ]]</td>
     <td>[[ x.name ]]</td>
