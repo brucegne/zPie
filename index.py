@@ -18,7 +18,7 @@ def ang_temp():
     return resp
 
 @app.route('/about', methods=['GET', 'POST'])
-def ang_temp():
+def about_temp():
     prms={}
     resp = make_response( render_template('about.html',**prms), 200 )
     return resp
