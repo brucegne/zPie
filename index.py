@@ -29,7 +29,8 @@ def add_rec():
         "created": str(int(time.time())),
         "name": "",
         "age": "",
-        "married": ""        
+        "married": "",
+        "mode": "Add"
     }
     resp = make_response( render_template('addtest.html',remote=prms), 200 )
     return resp
@@ -51,7 +52,8 @@ def mod_data():
         "created": row['created'],
         "name": row['name'],
         "age": row['age'],
-        "married": row['married']
+        "married": row['married'],
+        "mode": "Update"
     }
     print(prms)
     resp = make_response( render_template('addtest.html',remote=prms) )
