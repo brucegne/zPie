@@ -17,6 +17,13 @@ def ang_temp():
     resp = make_response( render_template('ang.html',**prms), 200 )
     return resp
 
+@app.route('/about', methods=['GET', 'POST'])
+def ang_temp():
+    prms={}
+    resp = make_response( render_template('about.html',**prms), 200 )
+    return resp
+
+
 @app.route('/testpost', methods=['GET', 'POST'])
 def test_post():
     name = request.args.get('name')

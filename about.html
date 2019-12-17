@@ -1,12 +1,11 @@
+<!DOCTYPE html>
 <html>
-<head>
-<title>Test Add / Modify</title>
+  <title>About</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
@@ -22,25 +21,14 @@
   </div>
 </nav>
 <div class="container" style="margin-top: 80px;">
-<form method="post" action="adddata">
-<input type="hidden" name="created" value="{{remote.created}}">
-<table class="table table-bordered">
-<tr><td>Name</td>
-<td> <input type="text" name="name" size="30" value="{{remote.name}}" class="form-control">
-  </td></tr>
-<tr><td>
-  Age</td><td>
-  <input type="text" name="age" size="10" value="{{remote.age}}" class="form-control">
-</td></tr>
-<tr><td>
-  Married</td><td>
-  <input type="text" name="married" value="{{remote.married}}" class="form-control">
-</td></tr>
-<tr><td colspan="2">
-  <input type="submit" value="{{remote.mode}}" class="form-control"/>
-</td></tr>
-</table>  
-</form>
-</div>  
+  <h3>
+    What is this all about?
+  </h3>
+  <p>
+    I have been doing computer work since 1975. In fields such as insurance, banking, wholesale and shipping, and mental health care. 
+    But after suffering 3 heart attacks last year, I wanted to see if I still had the 'sharps' to design from scratch. This is a project
+    I am using to test that out.
+  </p>
+  </div>  
 </body>
 </html>
