@@ -12,20 +12,21 @@
 <form method="post" action="adddata">
 <input type="hidden" name="created" value="{{remote.created}}">
 <table class="table table-bordered">
-<tr><td>Name</td></tr>
+<tr><td>Name</td>
 <td> <input type="text" name="name" size="30" value="{{remote.name}}">
-</td>
-<td>
+  </td></tr>
+<tr><td>
   Age
   <input type="text" name="age" size="10" value="{{remote.age}}">
-</td>
-<td>
+</td></tr>
+<tr><td>
   Married
   <input type="text" name="married" value="{{remote.married}}">
-</td>
-<td colspan="2">
+</td></tr>
+<tr><td colspan="2">
   <input type="submit" value="{{remote.mode}}" />
-</td>
+</td></tr>
+</table>  
 </form>
 </div>  
 </body>
