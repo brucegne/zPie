@@ -20,11 +20,11 @@ def ang_temp():
 @app.route('/register', methods=['GET','POST'])
 def register():
     rs=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
-    username = 'brucegne@gmail.com'
+    username = b'brucegne@gmail.com'
     password = b'Ye110wsn0w'
     salt = bcrypt.gensalt()
     hashed = bcrypt.hashpw(password, salt)
-    rs.hset('Users',username,hashed)
+    rs.hset('Users',username.decode(),hashed)
     return str(hashed)
 
   
