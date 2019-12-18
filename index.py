@@ -1,4 +1,5 @@
 from flask import Flask, render_template, Response, redirect, jsonify, url_for, escape, request, make_response, Response, session, abort, g, flash, _app_ctx_stack, send_file, jsonify
+from werkzeug.security import generate_password_hash, check_password_hash
 from bson import ObjectId
 import json, os, redis
 import time
@@ -17,6 +18,19 @@ def ang_temp():
     resp = make_response( render_template('ang.html',**prms), 200 )
     return resp
 
+@app.route('/register', methods=['GET','POST'])
+def register():
+    username = request.form['username']
+    password = request.form['password']
+    username = 'brucegne@gmail.com'
+    password = 'Ye110wsn0w'
+    try:
+        hsh = generate_password_hash(password)
+        return jsonify({'message': 'User registered successfully '+ hsh}), 201
+    except:
+        return jsonify({'error': 'An error occurred saving the user to the database'}), 500
+    
+  
 @app.route('/about', methods=['GET', 'POST'])
 def about_temp():
     prms={}
