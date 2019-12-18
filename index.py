@@ -20,15 +20,13 @@ def ang_temp():
 
 @app.route('/register', methods=['GET','POST'])
 def register():
-    username = request.form['username']
-    password = request.form['password']
     username = 'brucegne@gmail.com'
     password = 'Ye110wsn0w'
     try:
         hsh = generate_password_hash(password)
-        return jsonify({'message': 'User registered successfully '+ hsh}), 201
+        return{'User registered successfully '+ hsh}
     except:
-        return jsonify({'error': 'An error occurred saving the user to the database'}), 500
+        return('error encrypting')
     
   
 @app.route('/about', methods=['GET', 'POST'])
