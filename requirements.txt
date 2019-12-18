@@ -1,5 +1,5 @@
 flask==1.0.2
-werkzeug==0.16.0
+bcrypt==3.1.7
 redis==3.3.11
 requests==2.22.0
 pymongo==3.9.0

@@ -1,6 +1,5 @@
 from flask import Flask, render_template, Response, redirect, jsonify, url_for, escape, request, make_response, Response, session, abort, g, flash, _app_ctx_stack, send_file, jsonify
-from werkzeug.security import generate_password_hash, check_password_hash
-from bson import ObjectId
+import bcrypt
 import json, os, redis
 import time
 
@@ -20,14 +19,16 @@ def ang_temp():
 
 @app.route('/register', methods=['GET','POST'])
 def register():
+    r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
     username = 'brucegne@gmail.com'
     password = 'Ye110wsn0w'
     try:
-        hsh = generate_password_hash(password)
-        return{'User registered successfully '+ hsh}
+      salt = bcrypt.gensalt()
+      hashed = bcrypt.hashpw(passwd, salt)
+      rs.hset('Users',username,hashed)
+      return jsonify(status=It worked)
     except:
-        return('error encrypting')
-    
+        return jsonify(status=Invalid)
   
 @app.route('/about', methods=['GET', 'POST'])
 def about_temp():
