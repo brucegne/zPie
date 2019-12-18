@@ -27,6 +27,18 @@ def register():
     rs.hset('Users',username.decode(),hashed)
     return str(hashed)
 
+@app.route('/login', methods=['GET','POST'])
+def check_login():
+    rs=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
+    username = b'brucegne@gmail.com'
+    password = 'Ye110wsn0w'
+    salt = bcrypt.gensalt()
+    hashed = bcrypt.hashpw(password.encode(), salt)
+    hashed = rs.hget('Users',username.decode())
+    if bcrypt.checkpw(passwd.encode(), hashed):
+      return('Verified')
+    else:
+      return('Failed')
   
 @app.route('/about', methods=['GET', 'POST'])
 def about_temp():
