@@ -26,9 +26,10 @@ def register():
       salt = bcrypt.gensalt()
       hashed = bcrypt.hashpw(passwd, salt)
       rs.hset('Users',username,hashed)
-      return jsonify(status=It worked)
+      return json.dumps({"hash": hashed})
     except:
-        return jsonify(status=Invalid)
+      return json.dumps({"hash": "none"})
+
   
 @app.route('/about', methods=['GET', 'POST'])
 def about_temp():
