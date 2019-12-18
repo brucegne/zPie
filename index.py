@@ -35,7 +35,7 @@ def check_login():
     salt = bcrypt.gensalt()
     hashed = bcrypt.hashpw(password.encode(), salt)
     hashed = rs.hget('Users',username.decode())
-    if bcrypt.checkpw(passwd.encode(), hashed):
+    if bcrypt.checkpw(password.encode(), hashed):
       return('Verified')
     else:
       return('Failed')
