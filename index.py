@@ -24,7 +24,7 @@ def register():
     password = 'Ye110wsn0w'
     try:
       salt = bcrypt.gensalt()
-      hashed = bcrypt.hashpw(passwd, salt)
+      hashed = bcrypt.hashpw(password, salt)
       rs.hset('Users',username,hashed)
       return json.dumps({"hash": hashed})
     except:
