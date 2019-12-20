@@ -12,7 +12,7 @@ app = Flask(__name__)
 # @app.route('/', defaults={'path': ''})
 
 @app.route('/', methods=['GET', 'POST'])
-def red_json():
+def index_json():
     basisOut = []
     basisArray = {}
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
