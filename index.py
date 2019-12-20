@@ -33,7 +33,7 @@ def index_json():
       basisOut.append(rowOut)
     basisArray['records'] = basisOut
     retVal = json.dumps(basisArray)
-    resp = make_response( render_template('index.html',data=retVal), 200 )
+    resp = make_response( render_template('index.html',data=basisArray), 200 )
     return(resp) 
 
 
