@@ -12,10 +12,30 @@ app = Flask(__name__)
 # @app.route('/', defaults={'path': ''})
 
 @app.route('/', methods=['GET', 'POST'])
-def ang_temp():
-    prms={}
-    resp = make_response( render_template('ang.html',**prms), 200 )
-    return resp
+def red_json():
+    basisOut = []
+    basisArray = {}
+    r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
+    rkeys=r.hkeys('Contacts')
+    for kv in rkeys:
+      kv=kv.decode('utf-8')
+      row=r.hget('Contacts',kv)
+      row = row.decode('utf-8')
+      row=json.loads(row)
+      rowOut = {}
+      rowOut['created'] = row['created']
+      rowOut['name'] = row['name']
+      rowOut['age'] = row['age']
+      try:
+        rowOut['married'] = row['married']
+      except:
+        rowOut['married'] = "Not Set"
+      basisOut.append(rowOut)
+    basisArray['records'] = basisOut
+    retVal = json.dumps(basisArray)
+    resp = make_response( render_template('index.html',data=retVal), 200 )
+    return(resp) 
+
 
 @app.route('/register', methods=['GET','POST'])
 def register():
