@@ -14,7 +14,6 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index_json():
     basisOut = []
-    basisArray = {}
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
     rkeys=r.hkeys('Contacts')
     for kv in rkeys:
@@ -31,12 +30,15 @@ def index_json():
       except:
         rowOut['married'] = "Not Set"
       basisOut.append(rowOut)
-    basisArray['records'] = basisOut
-    retVal = json.dumps(basisArray)
     resp = make_response( render_template('index.html',data=basisOut), 200 )
     return(resp) 
 
-
+@app.route('/w3', methods=['GET'])
+def w3():
+    prms={}
+    resp = make_response( render_template('w3.html',**prms), 200 )
+    return resp
+  
 @app.route('/register', methods=['GET','POST'])
 def register():
     rs=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<title>W3.JS</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<body class="w3-container">
+
+<h2>Testing W3.JS with CSS</h2>
+
+<table id="id01" class="w3-table-all">
+  <tr>
+    <th>Customer</th>
+    <th>City</th>
+    <th>Country</th>
+  </tr>
+  <tr w3-repeat="customers">
+    <td>{{created}}</td>
+    <td>{{name}}</td>
+    <td>{{age}}</td>
+  </tr>
+</table>
+
+<script>
+w3.getHttpObject("json", myFunction);
+
+function myFunction(myObject) {
+  w3.displayObject("id01", myObject);
+}
+</script>
+
+</body>
+</html> 
+
