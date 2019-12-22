@@ -30,7 +30,7 @@ def index_json():
       except:
         rowOut['married'] = "Not Set"
       basisOut.append(rowOut)
-    resp = make_response( render_template('index.html',data=basisOut), 200 )
+    resp = make_response( render_template('index.html',data=basisOut.reverse() ), 200 )
     return(resp) 
 
 @app.route('/w3', methods=['GET'])
@@ -178,3 +178,4 @@ def red_json():
 @app.route('/<path:path>')
 def catch_all(path):
     return Response("<h1>Flask on Now</h1><p>You visited: /%s</p>" % (path), mimetype="text/html")
+
