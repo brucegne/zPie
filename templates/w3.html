@@ -13,11 +13,13 @@
     <th>City</th>
     <th>Country</th>
   </tr>
+  {% raw %}
   <tr w3-repeat="records">
     <td>{{ created }}</td>
     <td>{{ name }}</td>
     <td>{{ age }}</td>
   </tr>
+  <% endraw %}
 </table>
 
 <script>
