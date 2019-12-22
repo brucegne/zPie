@@ -9,14 +9,16 @@
 
 <table id="id01" class="w3-table-all w3-card-4" style="width: 500;">
   <tr>
-    <th>Customer</th>
-    <th>City</th>
-    <th>Country</th>
+    <th>Key</th>
+    <th>Name</th>
+    <th>Family</th>
+    <th>Age</th>
   </tr>
   {% raw %}
   <tr w3-repeat="records">
     <td>{{ created }}</td>
     <td>{{ name }}</td>
+    <td>{{ married }}</td>
     <td>{{ age }}</td>
   </tr>
   {% endraw %}
