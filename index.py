@@ -39,6 +39,12 @@ def w3():
     resp = make_response( render_template('w3.html',**prms), 200 )
     return resp
   
+@app.route('/ang', methods=['GET'])
+def ang():
+    prms={}
+    resp = make_response( render_template('ang.html',**prms), 200 )
+    return resp
+  
 @app.route('/register', methods=['GET','POST'])
 def register():
     rs=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
