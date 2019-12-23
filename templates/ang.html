@@ -41,6 +41,7 @@
 <table class="table table-striped table-bordered">
   {% raw %}
   <tr ng-repeat="x in names">
+    <td><a href="deldata?kv={{x.created}}"><span class="glyphicon glyphicon-trash"></span></a>&nbsp;&nbsp;<a href="modrec?kv={{x.created}}"><span class="glyphicon glyphicon-edit"></span></a>
     <td>{{ x.created }}</td>
     <td>{{ x.name }}</td>
     <td>{{ x.age }}</td>
