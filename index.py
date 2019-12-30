@@ -9,7 +9,15 @@ REDIS_URL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.c
 
 app = Flask(__name__)
 
-# @app.route('/', defaults={'path': ''})
+def  prtDate(dTarg):
+    d1 = time.localtime(dTarg)
+    tOut = "%s/%s/%s" % ( d1[1],d1[2],d1[0] )
+    return tOut
+
+def  fmtDate(dTarg):
+    d1 = time.localtime(dTarg)
+    tOut = "%s-%s-%s" % ( d1[1],d1[2],d1[0] )
+    return tOut
 
 @app.route('/', methods=['GET', 'POST'])
 def index_json():
@@ -77,7 +85,7 @@ def about_temp():
 
 @app.route('/testpost', methods=['GET', 'POST'])
 def test_post():
-    name = request.args.get('name')
+    name = request.body.get('name')
     print(name)
     return jsonify(request.json)
       
