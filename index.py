@@ -87,6 +87,7 @@ def about_temp():
 def test_post():
     name = request.form['name']
     age = 18
+    print(name)
     return jsonify(request.json)
       
 @app.route('/addrec', methods=['GET'])
