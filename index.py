@@ -86,7 +86,8 @@ def about_temp():
 @app.route('/testpost', methods=['GET', 'POST'])
 def test_post():
     name = request.body.get('name')
-    print(name)
+    age = request.body.get('age')
+    print(name+'  '+age)
     return jsonify(request.json)
       
 @app.route('/addrec', methods=['GET'])
@@ -149,7 +150,10 @@ def del_data():
 
 @app.route('/mnames')
 def mob_json():
+    keyOut = []
     nameOut = []
+    ageOut = []
+    familyOut = []
     nameArray = []
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
     rkeys=r.hkeys('Contacts')
@@ -159,7 +163,9 @@ def mob_json():
       row = row.decode('utf-8')
       row=json.loads(row)
       nameOut.append(row['name'])
-      nameArray.append(row['created'])
+      keyOut.append(row['created'])
+      familyOut.append(row['family'])
+      ageOut.append(row['age'])
     data = "|".join(nameOut)
     return Response(data, status=201, mimetype='application/json')
 
@@ -192,4 +198,5 @@ def red_json():
 @app.route('/<path:path>')
 def catch_all(path):
     return Response("<h1>Flask on Now</h1><p>You visited: /%s</p>" % (path), mimetype="text/html")
+
 
