@@ -164,7 +164,7 @@ def mob_json():
       row=json.loads(row)
       nameOut.append(row['name'])
       keyOut.append(row['created'])
-      familyOut.append(row['family'])
+      familyOut.append(row['married'])
       ageOut.append(row['age'])
     data = "|".join(nameOut)
     return Response(data, status=201, mimetype='application/json')
