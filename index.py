@@ -141,6 +141,21 @@ def add_data():
     r.hset('Contacts',kv,data)
     return redirect("/", code=302)
 
+@app.route('/postdata', methods=['POST'])
+def post_data():
+    r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
+    kv = request.form['created']
+    kv=str(kv)
+    recOut={}
+    recOut['created'] = str(int(time.time()))
+    recOut['name'] = request.form['name']
+    recOut['age'] = request.form['age']
+    recOut['married']= request.form['married']
+    data = json.dumps(recOut)
+    print(data)
+    r.hset('Contacts',kv,data)
+    return ('Saved')
+  
 @app.route('/deldata', methods=['GET'])
 def del_data():
     kv=request.args.get('kv')
@@ -198,5 +213,6 @@ def red_json():
 @app.route('/<path:path>')
 def catch_all(path):
     return Response("<h1>Flask on Now</h1><p>You visited: /%s</p>" % (path), mimetype="text/html")
+
 
 
