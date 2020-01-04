@@ -144,10 +144,10 @@ def add_data():
 @app.route('/postdata', methods=['POST'])
 def post_data():
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
-    kv = request.form['created']
+    kv = str(int(time.time()))
     kv=str(kv)
     recOut={}
-    recOut['created'] = str(int(time.time()))
+    recOut['created'] = kv
     recOut['name'] = request.form['name']
     recOut['age'] = request.form['age']
     recOut['married']= request.form['married']
