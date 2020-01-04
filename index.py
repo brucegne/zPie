@@ -154,7 +154,11 @@ def post_data():
     data = json.dumps(recOut)
     print(data)
     r.hset('Contacts',kv,data)
-    return ('Saved')
+    name = request.form['name']
+    age = 18
+    print(name)
+    return jsonify(request.json)
+
   
 @app.route('/deldata', methods=['GET'])
 def del_data():
