@@ -157,7 +157,7 @@ def post_data():
     name = request.form['name']
     age = 18
     print(name)
-    return jsonify(request.json)
+    return jsonify('Saved')
 
   
 @app.route('/deldata', methods=['GET'])
