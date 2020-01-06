@@ -6,7 +6,7 @@ from pymongo import MongoClient
 
 r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
 
-MONGO_URL="mongodb://brucegne:Grey9beard@ds043368.mlab.com:43368/demo"
+MONGO_URL="mongodb://brucegne:p2shiver@ds043368.mongolab.com:43368/demo?retryWrites=false"
 REDIS_URL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.com:9285/"
 
 # mongodb://<brucegne>:<Grey9beard>@ds031641.mlab.com:31641/
