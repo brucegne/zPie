@@ -230,9 +230,12 @@ def mongo_json():
     cursor = coll.find()
     for row in cursor:
       rowOut = {}
-      rowOut['id'] = row['_id'].encode('utf-8')
       rowOut['fname'] = row['fname']
       rowOut['lname'] = row['lname']
+      rowOut['dob'] = row['dob']
+      rowOut['city'] = row['city']
+      rowOut['address'] = row['address']
+      rowOut['phone'] = row['phone']
       basisOut.append(rowOut)
     basisArray['records'] = basisOut
     retVal = json.dumps(basisArray)
