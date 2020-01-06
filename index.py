@@ -232,7 +232,6 @@ def mongo_json():
       rowOut = {}
       rowOut['fname'] = row['fname']
       rowOut['lname'] = row['lname']
-      rowOut['dob'] = row['dob']
       rowOut['city'] = row['city']
       rowOut['address'] = row['address']
       rowOut['phone'] = row['phone']
