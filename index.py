@@ -2,12 +2,20 @@ from flask import Flask, render_template, Response, redirect, jsonify, url_for, 
 import bcrypt
 import json, os, redis
 import time
+from pymongo import MongoClient
 
 r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
 
+MONGO_URL="mongodb://brucegne:Grey9beard@ds043368.mlab.com:43368/demo"
 REDIS_URL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.com:9285/"
 
+# mongodb://<brucegne>:<Grey9beard>@ds031641.mlab.com:31641/
+
 app = Flask(__name__)
+
+client=MongoClient('mongodb://brucegne:p2shiver@ds043368.mongolab.com:43368/demo')
+db = client.demo
+
 
 def  prtDate(dTarg):
     d1 = time.localtime(dTarg)
@@ -214,9 +222,25 @@ def red_json():
     print(retVal)
     return(retVal) 
     
+@app.route('/mjson')
+def mongo_json():
+    basisOut = []
+    basisArray = {}
+    coll = db.contacts
+    for rec in coll:
+      rowOut = {}
+      rowOut['fname'] = row['fname']
+      rowOut['lname'] = row['lname']
+      basisOut.append(rowOut)
+    basisArray['records'] = basisOut
+    retVal = json.dumps(basisArray)
+    print(retVal)
+    return(retVal) 
+
 @app.route('/<path:path>')
 def catch_all(path):
     return Response("<h1>Flask on Now</h1><p>You visited: /%s</p>" % (path), mimetype="text/html")
+
 
 
 
