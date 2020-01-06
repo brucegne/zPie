@@ -233,8 +233,7 @@ def mongo_json():
       rowOut['id'] = row['_id']
       rowOut['fname'] = row['fname']
       rowOut['lname'] = row['lname']
-      rowOut['dob'] = row['dob']
-      rowOut['city'] = row['city']
+#      rowOut['dob'] = row['dob']
       rowOut['city'] = row['city']
       rowOut['phone'] = row['phone']
       basisOut.append(rowOut)
