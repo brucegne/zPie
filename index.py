@@ -228,7 +228,7 @@ def mongo_json():
     basisArray = {}
     coll = db.contacts
     cursor = coll.find()
-    for rec in cursor:
+    for row in cursor:
       rowOut = {}
       rowOut['fname'] = row['fname']
       rowOut['lname'] = row['lname']
