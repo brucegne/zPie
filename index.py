@@ -230,10 +230,22 @@ def red_json():
     
 @app.route('/mjson')
 def mongo_json():
+    basisOut = []
+    basisArray = {}
     coll = db.contacts
     cursor = coll.find()
-    resp = dumps(cursor)
-    return resp
+    for row in cursor:
+      rowOut = {}
+      rowOut['fname'] = row['fname']
+      rowOut['lname'] = row['lname']
+      rowOut['city'] = row['city']
+      rowOut['address'] = row['address']
+      rowOut['phone'] = row['phone']
+      basisOut.append(rowOut)
+    basisArray['records'] = basisOut
+    retVal = json.dumps(basisArray)
+    print(retVal)
+    return(retVal) 
 
 @app.route('/<path:path>')
 def catch_all(path):
