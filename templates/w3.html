@@ -19,16 +19,16 @@
   </tr>
   {% raw %}
   <tr w3-repeat="records">
-    <td>{{ created }}</td>
-    <td>{{ name }}</td>
-    <td>{{ married }}</td>
-    <td>{{ age }}</td>
+    <td>{{ fname }}</td>
+    <td>{{ lname }}</td>
+    <td>{{ city }}</td>
+    <td>{{ phone }}</td>
   </tr>
   {% endraw %}
 </table>
 
 <script>
-w3.getHttpObject("json", myFunction);
+w3.getHttpObject("mjson", myFunction);
 
 function myFunction(myObject) {
   w3.displayObject("id01", myObject);
