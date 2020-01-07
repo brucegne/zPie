@@ -230,12 +230,10 @@ def red_json():
     
 @app.route('/mjson')
 def mongo_json():
-    basisOut = []
-    basisArray = {}
     coll = db.contacts
     cursor = coll.find()
-  	resp = dumps(cursor)
-	  return resp
+    resp = dumps(cursor)
+    return resp
 
 @app.route('/<path:path>')
 def catch_all(path):
