@@ -63,7 +63,7 @@ def ang():
     return resp
   
 @app.route('/socks', methods=['GET'])
-def ang():
+def sock_demo():
     prms={}
     resp = make_response( render_template('socket.html',**prms), 200 )
     return resp
