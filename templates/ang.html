@@ -42,10 +42,10 @@
   {% raw %}
   <tr ng-repeat="x in names">
     <td><a href="deldata?kv={{x.created}}"><span class="glyphicon glyphicon-trash"></span></a>&nbsp;&nbsp;<a href="modrec?kv={{x.created}}"><span class="glyphicon glyphicon-edit"></span></a>
-    <td>{{ x.created }}</td>
-    <td>{{ x.name }}</td>
-    <td>{{ x.age }}</td>
-    <td>{{ x.married }}</td>
+    <td>{{ x.fname }}</td>
+    <td>{{ x.lname }}</td>
+    <td>{{ x.city }}</td>
+    <td>{{ x.phone }}</td>
   </tr>
   {% endraw %}
 </table>
@@ -55,7 +55,7 @@
 <script>
 var app = angular.module('myApp', []);
 app.controller('customersCtrl', function($scope, $http) {
-  $http.get("/json")
+  $http.get("/mjson")
   .then(function (response) {$scope.names = response.data.records;});
 });
 </script>
