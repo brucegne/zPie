@@ -27,8 +27,16 @@ def  fmtDate(dTarg):
     tOut = "%s-%s-%s" % ( d1[1],d1[2],d1[0] )
     return tOut
 
-@app.route('/', methods=['GET', 'POST'])
+  @app.route('/', methods=['GET', 'POST'])
 def index_json():
+    coll = db.contacts
+    cursor = coll.find()
+    resp = make_response( render_template('index.html',data=cursor ), 200 )
+    return(resp) 
+
+
+@app.route('/xx', methods=['GET', 'POST'])
+def indexxx_json():
     basisOut = []
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
     rkeys=r.hkeys('Contacts')
