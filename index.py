@@ -1,4 +1,5 @@
 from flask import Flask, render_template, Response, redirect, jsonify, url_for, escape, request, make_response, Response, session, abort, g, flash, _app_ctx_stack, send_file, jsonify
+from flask_socketio import SocketIO, emit
 import bcrypt
 import json, os, redis
 import time
@@ -9,13 +10,13 @@ r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab982
 MONGO_URL="mongodb://brucegne:p2shiver@ds043368.mongolab.com:43368/demo?retryWrites=false"
 REDIS_URL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.com:9285/"
 
-# mongodb://<brucegne>:<Grey9beard>@ds031641.mlab.com:31641/
-
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'Ye110wsn0w!'
+socketio = SocketIO(app)
 
-client=MongoClient('mongodb://brucegne:p2shiver@ds043368.mongolab.com:43368/demo')
+client=MongoClient(MONGO_URL)
+
 db = client.demo
-
 
 def  prtDate(dTarg):
     d1 = time.localtime(dTarg)
@@ -245,6 +246,11 @@ def mongo_json():
 def catch_all(path):
     return Response("<h1>Flask on Now</h1><p>You visited: /%s</p>" % (path), mimetype="text/html")
 
+@socketio.on('my event')
+def test_message(message):
+    emit('my response', {'data': 'got it!'})
 
+if __name__ == '__main__':
+    socketio.run(app)
 
 
