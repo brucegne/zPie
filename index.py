@@ -1,4 +1,6 @@
 from flask import Flask, render_template, Response, redirect, jsonify, url_for, escape, request, make_response, Response, session, abort, g, flash, _app_ctx_stack, send_file, jsonify
+from bson.json_util import dumps
+from bson.objectid import ObjectId
 import bcrypt
 import json, os, redis
 import time
@@ -232,18 +234,8 @@ def mongo_json():
     basisArray = {}
     coll = db.contacts
     cursor = coll.find()
-    for row in cursor:
-      rowOut = {}
-      rowOut['fname'] = row['fname']
-      rowOut['lname'] = row['lname']
-      rowOut['city'] = row['city']
-      rowOut['address'] = row['address']
-      rowOut['phone'] = row['phone']
-      basisOut.append(rowOut)
-    basisArray['records'] = basisOut
-    retVal = json.dumps(basisArray)
-    print(retVal)
-    return(retVal) 
+  	resp = dumps(cursor)
+	  return resp
 
 @app.route('/<path:path>')
 def catch_all(path):
