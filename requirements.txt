@@ -1,5 +1,5 @@
 flask==1.0.2
-flask-SocketIO==4.2.1
+flask-socketio==4.2.1
 bcrypt==3.1.7
 redis==3.3.11
 requests==2.22.0
