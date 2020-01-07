@@ -27,7 +27,7 @@ def  fmtDate(dTarg):
     tOut = "%s-%s-%s" % ( d1[1],d1[2],d1[0] )
     return tOut
 
-  @app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index_json():
     coll = db.contacts
     cursor = coll.find()
