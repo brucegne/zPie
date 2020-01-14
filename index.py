@@ -17,6 +17,28 @@ client=MongoClient(MONGO_URL)
 
 db = client.demo
 
+"""
+@app.route("/", methods=['POST'])
+def insert_document():
+    req_data = request.get_json()
+    collection.insert_one(req_data).inserted_id
+    return ('', 204)
+
+@app.route('/')
+def get():
+    documents = collection.find()
+    response = []
+    for document in documents:
+        document['_id'] = str(document['_id'])
+        response.append(document)
+    return json.dumps(response)
+
+lim = int(request.args.get('limit', 10))
+off = int(request.args.get('offset', 0))
+results = db['ufo'].find().skip(off).limit(lim)
+    
+"""
+
 def  prtDate(dTarg):
     d1 = time.localtime(dTarg)
     tOut = "%s/%s/%s" % ( d1[1],d1[2],d1[0] )
@@ -104,6 +126,11 @@ def about_temp():
     resp = make_response( render_template('about.html',**prms), 200 )
     return resp
 
+@app.route('/angular', methods=['GET', 'POST'])
+def angular_temp():
+    prms={}
+    resp = make_response( render_template('angular.html',**prms), 200 )
+    return resp
 
 @app.route('/testpost', methods=['GET', 'POST'])
 def test_post():
@@ -258,5 +285,6 @@ def mongo_json():
 @app.route('/<path:path>')
 def catch_all(path):
     return Response("<h1>Flask on Now</h1><p>You visited: /%s</p>" % (path), mimetype="text/html")
+
 
 

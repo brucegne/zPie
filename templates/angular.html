@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body ng-app="myApp">
+
+<p><a href="#/!">Main</a></p>
+
+<a href="#!basis">Basis</a>
+<a href="#!paris">City 2</a>
+
+<p>Click on the links.</p>
+
+<div ng-view></div>
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "postname.php",
+    })
+    .when("/basis", {
+        templateUrl : "angle.htm",
+        controller : "myCtrl"
+    })
+    .when("/paris", {
+        templateUrl : "paris.htm",
+        controller : "parisCtrl"
+    });
+});
+app.controller('myCtrl', function($scope, $http) {
+  $http.get("json.php")
+  .then(function(response) {
+    $scope.basis = response.data.records;
+  });
+  
+});app.controller("londonCtrl", function ($scope,$http) {
+    $http.get("json.php")
+    .then(function (response) {
+        $scope.basis = response.data.records;
+    });
+});
+
+app.controller("parisCtrl", function ($scope, $http) {
+    $scope.user = {firstname: "John", lastname: "Doe"};
+    $scope.hello = "Form Demo";
+    $scope.submit = function() {
+//        alert(JSON.stringify($scope.user));
+    $url="postname.php";
+        $.ajax({
+                url: $url,
+                type: 'POST',
+                contentType: 'application/json',
+                data: { json: JSON.stringify({
+                    firstname:"Bob",
+                }),
+                },
+                dataType: 'json'
+            });
+            alert("json posted!");
+
+    };
+    });
+
+</script>
+
+</body>
+</html>
+
