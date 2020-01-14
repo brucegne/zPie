@@ -31,13 +31,13 @@ app.config(function($routeProvider) {
     });
 });
 app.controller('myCtrl', function($scope, $http) {
-  $http.get("json.php")
+  $http.get("mjson")
   .then(function(response) {
     $scope.basis = response.data.records;
   });
   
 });app.controller("londonCtrl", function ($scope,$http) {
-    $http.get("json.php")
+    $http.get("json")
     .then(function (response) {
         $scope.basis = response.data.records;
     });
