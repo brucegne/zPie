@@ -19,14 +19,15 @@ var app = angular.module("myApp", ["ngRoute"]);
 app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
-        templateUrl : "postname.php",
+        controlller: "myCtrl"
+        template : "{{ basis | json}",
     })
     .when("/basis", {
-        templateUrl : "angle.htm",
+        template : "{{ basis | json}",
         controller : "myCtrl"
     })
     .when("/paris", {
-        templateUrl : "paris.htm",
+        template : "{{ basis | json}",
         controller : "parisCtrl"
     });
 });
