@@ -27,8 +27,8 @@ app.config(function($routeProvider) {
         template : "<h3>Mongo JSON</h3><p>{{ basis | json }}</p>",
     })
     .when("/basis", {
-        templateUrl : "mongo.html",
-        controller : "myCtrl",
+        controlller: "myCtrl",
+        templateUrl : "templates/mongo.html",
     })
     .when("/paris", {
         template : "<h3>Redis JSON</h3><p>{{ basis | json }}</p>",
