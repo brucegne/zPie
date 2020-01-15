@@ -19,16 +19,16 @@ var app = angular.module("myApp", ["ngRoute"]);
 app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
-        controlller: "myCtrl"
+        controlller: "myCtrl",
         template : "{{ basis | json }}",
     })
     .when("/basis", {
         template : "{{ basis | json }}",
-        controller : "myCtrl"
+        controller : "myCtrl",
     })
     .when("/paris", {
         template : "{{ basis | json }}",
-        controller : "parisCtrl"
+        controller : "parisCtrl",
     });
 });
 app.controller('myCtrl', function($scope, $http) {
