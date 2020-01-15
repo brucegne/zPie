@@ -11,7 +11,7 @@
 
 <p><a href="#/!">Main</a></p>
 
-<a href="#!basis">MongoDB</a>
+<a href="#!mongo">MongoDB</a>
 <a href="#!paris">RedisDB</a>
 
 <p>Click on the links.</p>
@@ -27,7 +27,7 @@ app.config(function($routeProvider) {
         controlller: "myCtrl",
         template : "<h3>Mongo JSON</h3><p>{{ basis | json }}</p>",
     })
-    .when("/basis", {
+    .when("/mongo", {
         controlller: "myCtrl",
         templateUrl : "mongo.html",
     })
