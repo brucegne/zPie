@@ -42,7 +42,6 @@ app.controller('myCtrl', function($scope, $http) {
     .then(function (response) {
         $scope.basis = response.data.records;
     });
-});
 
 });app.controller("parisCtrl", function ($scope,$http) {
     $http.get("json")
