@@ -49,7 +49,7 @@ app.controller("parisCtrl", function ($scope, $http) {
     $scope.hello = "Form Demo";
     $scope.submit = function() {
 //        alert(JSON.stringify($scope.user));
-    $url="postname.php";
+    $url="/json";
         $.ajax({
                 url: $url,
                 type: 'POST',
