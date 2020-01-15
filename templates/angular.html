@@ -20,14 +20,14 @@ app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
         controlller: "myCtrl"
-        template : "{{ basis | json}",
+        template : "{{ basis | json }}",
     })
     .when("/basis", {
-        template : "{{ basis | json}",
+        template : "{{ basis | json }}",
         controller : "myCtrl"
     })
     .when("/paris", {
-        template : "{{ basis | json}",
+        template : "{{ basis | json }}",
         controller : "parisCtrl"
     });
 });
