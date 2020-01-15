@@ -7,8 +7,8 @@
 
 <p><a href="#/!">Main</a></p>
 
-<a href="#!basis">Basis</a>
-<a href="#!paris">City 2</a>
+<a href="#!basis">MongoDB</a>
+<a href="#!paris">RedisDB</a>
 
 <p>Click on the links.</p>
 
@@ -20,14 +20,14 @@ app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
         controlller: "myCtrl",
-        template : "{{ basis | json }}",
+        template : "<h3>Mongo JSON</h3><p>{{ basis | json }}</p>",
     })
     .when("/basis", {
-        template : "{{ basis | json }}",
+        template : "<h3>Mongo JSON</h3><p>{{ basis | json }}</p>",
         controller : "myCtrl",
     })
     .when("/paris", {
-        template : "{{ basis | json }}",
+        template : "<h3>Redis JSON</h3><p>{{ basis | json }}</p>",
         controller : "parisCtrl",
     });
 });
@@ -75,4 +75,5 @@ app.controller("parisXCtrl", function ($scope, $http) {
 {% endraw %}
 </body>
 </html>
+
 
