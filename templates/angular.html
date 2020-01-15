@@ -27,7 +27,7 @@ app.config(function($routeProvider) {
         template : "<h3>Mongo JSON</h3><p>{{ basis | json }}</p>",
     })
     .when("/mongo", {
-        controlller: "myCtrl",
+        controlller: "londonCtrl",
         template : "<h3>Mongo JSON</h3><p>{{ basis | json }}</p>",
     })
     .when("/paris", {
@@ -48,7 +48,7 @@ app.controller('myCtrl', function($scope, $http) {
     });
 
 });app.controller("parisCtrl", function ($scope,$http) {
-    $http.get("mjson")
+    $http.get("json")
     .then(function (response) {
         $scope.basis = response.data.records;
     });
