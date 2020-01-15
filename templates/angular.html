@@ -49,7 +49,7 @@ app.controller('myCtrl', function($scope, $http) {
     });
 
 });app.controller("parisCtrl", function ($scope,$http) {
-    $http.get("json")
+    $http.get("mjson")
     .then(function (response) {
         $scope.basis = response.data.records;
     });
