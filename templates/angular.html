@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -23,7 +26,7 @@ app.config(function($routeProvider) {
         template : "<h3>Mongo JSON</h3><p>{{ basis | json }}</p>",
     })
     .when("/basis", {
-        template : "<h3>Mongo JSON</h3><p>{{ basis | json }}</p>",
+        templateUrl : "mongo.html",
         controller : "myCtrl",
     })
     .when("/paris", {
@@ -51,7 +54,7 @@ app.controller('myCtrl', function($scope, $http) {
 });
   
 app.controller("parisXCtrl", function ($scope, $http) {
-    $scope.user = {firstname: "John", lastname: "Doe"};
+    $scope.user = {};
     $scope.hello = "Form Demo";
     $scope.submit = function() {
     $url="/json";
@@ -60,7 +63,9 @@ app.controller("parisXCtrl", function ($scope, $http) {
                 type: 'POST',
                 contentType: 'application/json',
                 data: { json: JSON.stringify({
-                    firstname:"Bob",
+                    name:"Bob",
+                    age:"13",
+                    married:"Not yet"
                 }),
                 },
                 dataType: 'json'
@@ -75,5 +80,6 @@ app.controller("parisXCtrl", function ($scope, $http) {
 {% endraw %}
 </body>
 </html>
+
 
 
