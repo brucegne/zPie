@@ -1,0 +1,12 @@
+<div class="container">
+<table class="table table-striped table-bordered">
+  <tr ng-repeat="x in basis">
+    <td><a href="deldata?kv={{x.created}}"><span class="glyphicon glyphicon-trash"></span></a>&nbsp;&nbsp;<a href="modrec?kv={{x.created}}"><span class="glyphicon glyphicon-edit"></span></a>
+    <td>{{ x.fname }}</td>
+    <td>{{ x.lname }}</td>
+    <td>{{ x.city }}</td>
+    <td>{{ x.phone }}</td>
+  </tr>
+</table>
+</div>
+
