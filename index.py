@@ -49,7 +49,7 @@ def  fmtDate(dTarg):
     tOut = "%s-%s-%s" % ( d1[1],d1[2],d1[0] )
     return tOut
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/mdb', methods=['GET', 'POST'])
 def index_json():
     coll = db.contacts
     cursor = coll.find()
@@ -57,7 +57,7 @@ def index_json():
     return(resp) 
 
 
-@app.route('/xx', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def indexxx_json():
     basisOut = []
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
@@ -285,6 +285,7 @@ def mongo_json():
 @app.route('/<path:path>')
 def catch_all(path):
     return Response("<h1>Flask on Now</h1><p>You visited: /%s</p>" % (path), mimetype="text/html")
+
 
 
 
