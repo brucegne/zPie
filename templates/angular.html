@@ -44,11 +44,17 @@ app.controller('myCtrl', function($scope, $http) {
     });
 });
 
-app.controller("parisCtrl", function ($scope, $http) {
+});app.controller("parisCtrl", function ($scope,$http) {
+    $http.get("json")
+    .then(function (response) {
+        $scope.basis = response.data.records;
+    });
+});
+  
+app.controller("parisXCtrl", function ($scope, $http) {
     $scope.user = {firstname: "John", lastname: "Doe"};
     $scope.hello = "Form Demo";
     $scope.submit = function() {
-//        alert(JSON.stringify($scope.user));
     $url="/json";
         $.ajax({
                 url: $url,
@@ -64,7 +70,8 @@ app.controller("parisCtrl", function ($scope, $http) {
 
     };
     });
-
+*/
+  
 </script>
 {% endraw %}
 </body>
