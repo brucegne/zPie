@@ -48,10 +48,10 @@
   <tr>
     <td><a href="deldata?kv={{row.created}}"><span class="glyphicon glyphicon-trash"></span></a>&nbsp;&nbsp;<a href="modrec?kv={{row.created}}"><span class="glyphicon glyphicon-edit"></span></a>
     </td>
-    <td>{{ row.lname }}</td>
-    <td>{{ row.fname }}</td>
-    <td>{{ row.address }}</td>
-    <td>{{ row.phone }}</td>
+    <td>{{ row.created }}</td>
+    <td>{{ row.name }}</td>
+    <td>{{ row.age }}</td>
+    <td>{{ row.married }}</td>
   </tr>
   {% endfor %}
 </table>
