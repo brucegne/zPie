@@ -279,7 +279,6 @@ def mongo_json():
       basisOut.append(rowOut)
     basisArray['records'] = basisOut
     retVal = json.dumps(basisArray)
-    retVal = json.dumps(cursor)    
     print(retVal)
     return(retVal) 
 
