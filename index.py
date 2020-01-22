@@ -179,7 +179,7 @@ def mod_data():
 
 @app.route('/adddata', methods=['POST'] )
 def add_mondo_rec():
-  
+    print('fetching form data')
     mydict = {}
     mydict['kv'] = request.form['kv']
     mydict['fname'] = request.form['fname']
