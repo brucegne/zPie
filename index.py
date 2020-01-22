@@ -49,7 +49,7 @@ def  fmtDate(dTarg):
     tOut = "%s-%s-%s" % ( d1[1],d1[2],d1[0] )
     return tOut
 
-@app.route('/mdb', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index_json():
     coll = db.contacts
     cursor = coll.find()
@@ -57,7 +57,7 @@ def index_json():
     return(resp) 
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/xxx', methods=['GET', 'POST'])
 def indexxx_json():
     basisOut = []
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
@@ -142,10 +142,12 @@ def test_post():
 @app.route('/addrec', methods=['GET'])
 def add_rec():
     prms={
-        "created": str(int(time.time())),
-        "name": "",
-        "age": "",
-        "married": "",
+        "kv": str(int(time.time())),
+        "fname": "",
+        "lname": "",
+        "address": "",
+        "city": "",
+        "phone": "",
         "mode": "Add"
     }
     resp = make_response( render_template('addtest.html',remote=prms), 200 )
@@ -177,6 +179,7 @@ def mod_data():
         
 @app.route('/adddata', methods=['POST'])
 def add_data():
+    print(request.form)
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
     kv = request.form['created']
     kv=str(kv)
