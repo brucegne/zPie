@@ -177,7 +177,7 @@ def mod_data():
     resp = make_response( render_template('addtest.html',remote=prms) )
     return resp
 
-@app.route('/adddata', methods=['GET'])
+@app.route('/adddata', methods=['POST'])
 def add_mongo_rec():
     print('fetching form data')
 #    db.contacts.insert({"fname":"Bruce","lname":"Gordon","phone":"1112223333","kv":"12345"})
