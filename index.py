@@ -201,9 +201,8 @@ def add_mongo_rec():
     print('fetching form data')
     kv = request.form.get('kv')
     mode = request.form.get('mode')
-#    db.contacts.insert({"fname":"Bruce","lname":"Gordon","phone":"1112223333","kv":"12345"})
     mydict = {}
-    mydict['kv'] = request.form['kv']
+    mydict['kv'] = request.form.get('kv')
     mydict['fname'] = request.form.get('fname')
     mydict['lname'] = request.form.get('lname')
     mydict['address'] = request.form.get('address')
@@ -212,7 +211,7 @@ def add_mongo_rec():
     if mode == 'Add':
       db.contacts.insert(mydict)
     else:
-      db.contacts.update_one({"kv": kv },{ "$set": mydict })
+      db.contacts.update_one({"kv": kv },{ "$set": mydict } )
     return redirect("/", code=302)
 
 @app.route('/adddataxxx', methods=['POST'])
