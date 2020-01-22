@@ -180,14 +180,13 @@ def mod_data():
 @app.route('/adddata', methods=['POST'] )
 def add_mondo_rec():
   
-    mydict = {
+    mydict = {}
         mydict['kv'] = request.form['kv']
         mydict['fname'] = request.form['fname']
         mydict['lname'] = request.form['lname']
         mydict['address'] = request.form['address']
         mydict['city'] = request.form['city']
         mydict['phone'] = request.form['phone']
-    }
     db.contacts.insert_one(mydict)
     return redirect("/", code=302)
 
