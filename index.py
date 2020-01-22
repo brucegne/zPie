@@ -187,7 +187,8 @@ def add_mondo_rec():
     mydict['address'] = request.form['address']
     mydict['city'] = request.form['city']
     mydict['phone'] = request.form['phone']
-    db.contacts.insert_one(mydict)
+    data = json.dumps(mydict)
+    db.contacts.insert_one(data)
     return redirect("/", code=302)
 
 @app.route('/adddataxxx', methods=['POST'])
