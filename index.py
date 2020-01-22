@@ -177,7 +177,7 @@ def mod_data():
     resp = make_response( render_template('addtest.html',remote=prms) )
     return resp
 
-@app.route('/adddata' methods=['POST'] )
+@app.route('/adddata', methods=['POST'] )
 def add_mondo_rec()
     mydict = {
         mydict["kv"] = request.form['kv'],
