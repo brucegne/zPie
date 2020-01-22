@@ -183,14 +183,11 @@ def add_mongo_rec():
 #    db.contacts.insert({"fname":"Bruce","lname":"Gordon","phone":"1112223333","kv":"12345"})
     mydict = {}
     mydict['kv'] = request.form['kv']
-    print(request.form['kv'])
-    mydict['fname'] = request.form['fname']
-    print(request.form['fname'])
-    mydict['lname'] = request.form['lname']
-    print(request.form['lname'])
-    mydict['address'] = request.form['address']
-    mydict['city'] = request.form['city']
-    mydict['phone'] = request.form['phone']
+    mydict['fname'] = request.form.get('fname')
+    mydict['lname'] = request.form.get('lname')
+    mydict['address'] = request.form.get('address')
+    mydict['city'] = request.form.get('city')
+    mydict['phone'] = request.form.get('phone')
     data = json.dumps(mydict)
     print(data)
     db.contacts.insert(mydict)
