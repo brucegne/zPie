@@ -188,12 +188,12 @@ def add_mondo_rec():
     mydict['city'] = request.form['city']
     mydict['phone'] = request.form['phone']
     data = json.dumps(mydict)
+    print(data)
     db.contacts.insert(data)
     return redirect("/", code=302)
 
 @app.route('/adddataxxx', methods=['POST'])
 def add_data():
-    print(request.form)
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
     kv = request.form['created']
     kv=str(kv)
