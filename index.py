@@ -226,9 +226,14 @@ def post_data():
     print(name)
     return jsonify('Saved')
 
-  
 @app.route('/deldata', methods=['GET'])
 def del_data():
+    kv=request.args.get('kv')
+    db.contacts.delete({"kv": kv})
+    return redirect("/", code=302)
+  
+@app.route('/deldatazzz', methods=['GET'])
+def del_datazzz():
     kv=request.args.get('kv')
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
     res=r.hdel('Contacts',kv)
