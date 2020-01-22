@@ -182,14 +182,17 @@ def add_mongo_rec():
     print('fetching form data')
     mydict = {}
     mydict['kv'] = request.form['kv']
+    print(request.form['kv'])
     mydict['fname'] = request.form['fname']
+    print(request.form['fname'])
     mydict['lname'] = request.form['lname']
+    print(request.form['lname'])
     mydict['address'] = request.form['address']
     mydict['city'] = request.form['city']
     mydict['phone'] = request.form['phone']
     data = json.dumps(mydict)
     print(data)
-#    db.contacts.insert(mydict)
+    db.contacts.insert(mydict)
     return redirect("/", code=302)
 
 @app.route('/adddataxxx', methods=['POST'])
