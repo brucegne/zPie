@@ -177,15 +177,15 @@ def mod_data():
     resp = make_response( render_template('addtest.html',remote=prms) )
     return resp
 
-@app.route('/adddata', methods=['POST'])
+@app.route('/adddata', methods=['GET'])
 def add_mongo_rec():
     print('fetching form data')
     mydict = {}
-#    mydict['kv'] = request.form['kv']
+    mydict['kv'] = request.form['kv']
     print(request.form['kv'])
-#    mydict['fname'] = request.form['fname']
+    mydict['fname'] = request.form['fname']
     print(request.form['fname'])
-#    mydict['lname'] = request.form['lname']
+    mydict['lname'] = request.form['lname']
     print(request.form['lname'])
     mydict['address'] = request.form['address']
     mydict['city'] = request.form['city']
