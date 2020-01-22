@@ -199,6 +199,8 @@ def mod_dataxxx():
 @app.route('/adddata', methods=['POST'])
 def add_mongo_rec():
     print('fetching form data')
+    kv = request.form.get('kv')
+    mode = request.form.get('mode')
 #    db.contacts.insert({"fname":"Bruce","lname":"Gordon","phone":"1112223333","kv":"12345"})
     mydict = {}
     mydict['kv'] = request.form['kv']
@@ -207,9 +209,10 @@ def add_mongo_rec():
     mydict['address'] = request.form.get('address')
     mydict['city'] = request.form.get('city')
     mydict['phone'] = request.form.get('phone')
-    data = json.dumps(mydict)
-    print(data)
-    db.contacts.insert(mydict)
+    if mode == 'Add':
+      db.contacts.insert(mydict)
+    else:
+      db.contacts.update_one({"kv": kv }, mydict)
     return redirect("/", code=302)
 
 @app.route('/adddataxxx', methods=['POST'])
