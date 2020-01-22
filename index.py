@@ -53,7 +53,7 @@ def  fmtDate(dTarg):
 def index_json():
     coll = db.contacts
     cursor = coll.find()
-    resp = make_response( render_template('index.html',data=cursor ), 200 )
+    resp = make_response( render_template('idx.html',data=cursor ), 200 )
     return(resp) 
 
 
