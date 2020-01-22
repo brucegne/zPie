@@ -178,7 +178,8 @@ def mod_data():
     return resp
 
 @app.route('/adddata', methods=['POST'] )
-def add_mondo_rec()
+def add_mondo_rec():
+  
     mydict = {
         mydict["kv"] = request.form['kv'],
         mydict['fname'] = request.form['fname']
