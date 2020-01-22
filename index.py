@@ -176,8 +176,21 @@ def mod_data():
     print(prms)
     resp = make_response( render_template('addtest.html',remote=prms) )
     return resp
-        
-@app.route('/adddata', methods=['POST'])
+
+@app.route('/adddata' methods={['POST']}
+def add_mondo_rec()
+    mydict = {
+        mydict["kv"] = request.form['kv'],
+        mydict['fname'] = request.form['fname']
+        mydict['lname'] = request.form['lname']
+        mydict['address'] = request.form['address']
+        mydict['city'] = request.form['city']
+        mydict['phone'] = request.form['phone']
+    }
+    db.contacts.insert_one(mydict)
+    return redirect("/", code=302)
+
+@app.route('/adddataxxx', methods=['POST'])
 def add_data():
     print(request.form)
     r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
