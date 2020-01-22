@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response, redirect, jsonify, url_for, escape, request, make_response, Response, session, abort, g, flash, _app_ctx_stack, send_file, jsonify
+from flask import Flask, render_template, Response, redirect, escape, request, make_response, Response, session, abort, g, flash, _app_ctx_stack, send_file, jsonify
 from bson.json_util import dumps
 from bson.objectid import ObjectId
 import bcrypt
@@ -180,6 +180,7 @@ def mod_data():
 @app.route('/adddata', methods=['GET'])
 def add_mongo_rec():
     print('fetching form data')
+    db.contacts.insert({"fname":"Bruce","lname":"Gordon","phone":"1112223333","kv":"12345"})
     mydict = {}
     mydict['kv'] = request.form['kv']
     print(request.form['kv'])
