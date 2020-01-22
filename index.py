@@ -181,7 +181,7 @@ def mod_data():
 def add_mondo_rec():
   
     mydict = {
-        mydict["kv"] = request.form['kv']
+        mydict['kv'] = request.form['kv']
         mydict['fname'] = request.form['fname']
         mydict['lname'] = request.form['lname']
         mydict['address'] = request.form['address']
