@@ -177,7 +177,7 @@ def mod_data():
     resp = make_response( render_template('addtest.html',remote=prms) )
     return resp
 
-@app.route('/adddata')
+@app.route('/adddata', methods=['POST'])
 def add_mongo_rec():
     print('fetching form data')
     mydict = {}
