@@ -229,7 +229,7 @@ def post_data():
 @app.route('/deldata', methods=['GET'])
 def del_data():
     kv=request.args.get('kv')
-    db.contacts.delete({"kv": kv})
+    db.contacts.delete_one({"kv": kv })
     return redirect("/", code=302)
   
 @app.route('/deldatazzz', methods=['GET'])
