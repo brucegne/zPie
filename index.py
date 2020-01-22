@@ -167,7 +167,7 @@ def mod_data():
     rname = row['name']
     rcreated = row['created']
     prms={
-        "created": row['created'],
+        "kv": row['created'],
         "name": row['name'],
         "age": row['age'],
         "married": row['married'],
@@ -180,7 +180,7 @@ def mod_data():
 @app.route('/adddata', methods=['GET'])
 def add_mongo_rec():
     print('fetching form data')
-    db.contacts.insert({"fname":"Bruce","lname":"Gordon","phone":"1112223333","kv":"12345"})
+#    db.contacts.insert({"fname":"Bruce","lname":"Gordon","phone":"1112223333","kv":"12345"})
     mydict = {}
     mydict['kv'] = request.form['kv']
     print(request.form['kv'])
