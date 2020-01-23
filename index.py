@@ -315,6 +315,7 @@ def mongo_json():
     cursor = coll.find().sort("lname")
     for row in cursor:
       rowOut = {}
+      rowOut['kv'] = row['kv']
       rowOut['fname'] = row['fname']
       rowOut['lname'] = row['lname']
       rowOut['city'] = row['city']
