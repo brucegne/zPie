@@ -24,9 +24,7 @@ $(document).ready(function(){
     function(data,status){
       $("#restext").html(data);
       $("#alertbox").show();
-      $("#alertbox").hide("slow", function(){
-        window.location.href="/";
-      });
+      $("#alertbox").hide("slow");
     });
 });
 </script>
