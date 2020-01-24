@@ -8,6 +8,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script>
 $(document).ready(function(){
+  $("#restext").html("");
+  $("#alertbox").hide();
   $("#submit").click(function(e){
     e.preventDefault();
     $.post("/adddata",
@@ -21,10 +23,12 @@ $(document).ready(function(){
       phone: $("#phone").val()
     },
     function(data,status){
-      alert("Response: " + data + "\nStatus: " + status);
-      window.location.href="/";
+      $("#restext").html(data);
+      $("#alertbox").show("slow");
+      $("#alertbox").hide("slow", function(){
+        window.location.href="/";
+      });
     });
-  });
 });
 </script>
 </head>
@@ -45,8 +49,11 @@ $(document).ready(function(){
   </div>
 </nav>
 <div class="container" style="margin-top: 80px;">
-  <div class="row">
-       <div class="col-md-3">&nbsp;</div>
+<div id="alertbox" class="alert alert-success">
+  <strong><span id="restext"></span></strong>
+</div>
+<div class="row">
+  <div class="col-md-3">&nbsp;</div>
   <div class="col-md-6">
     <form method="POST" action="/adddata">
     <input type="hidden" id="kv" name="kv" value="{{remote.kv}}">
