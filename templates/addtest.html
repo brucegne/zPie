@@ -12,13 +12,13 @@ $(document).ready(function(){
     e.preventDefault();
     $.post("/adddata",
     {
-      kv: $("#kv").value,
-      mode: $("#mode").value,
-      fname: $("#fname").value,
-      lname: $("#lname").value,
-      address: $("#address").value,
-      city: $("#city").value,
-      phone: $("#phone").value
+      kv: $("#kv").val(),
+      mode: $("#mode").val(),
+      fname: $("#fname").val(),
+      lname: $("#lname").val(),
+      address: $("#address").val(),
+      city: $("#city").val(),
+      phone: $("#phone").val()
     },
     function(data,status){
       alert("Data: " + data + "\nStatus: " + status);
