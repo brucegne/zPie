@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, Response, redirect, escape, request, make_response, Response, session, abort, g, flash, _app_ctx_stack, send_file, jsonify
+from flask import Flask, render_template, Response, redirect, escape, request, make_response, Response, session, abort, g, flash, _app_ctx_stack, send_file
 from bson.json_util import dumps
 from bson.objectid import ObjectId
 import bcrypt
