@@ -212,7 +212,8 @@ def add_mongo_rec():
       db.contacts.insert(mydict)
     else:
       db.contacts.update_one({"kv": kv },{ "$set": mydict } )
-    return redirect("/", code=302)
+    return("Success Add/Update")      
+#    return redirect("/", code=302)
 
 @app.route('/adddataxxx', methods=['POST'])
 def add_data():

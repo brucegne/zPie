@@ -6,6 +6,26 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#submit").click(function(e){
+    e.preventDefault();
+    $.post("/adddata",
+    {
+      kv: $("$kv").value,
+      mode: $("#mode").value,
+      fname: $("#fname").value,
+      lname: $("#lname").value,
+      address: $("#address").value,
+      city: $("#city").value,
+      phone: $("#phone").value
+    },
+    function(data,status){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+  });
+});
+</script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -28,30 +48,30 @@
        <div class="col-md-3">&nbsp;</div>
   <div class="col-md-6">
     <form method="POST" action="/adddata">
-    <input type="hidden" name="kv" value="{{remote.kv}}">
-    <input type="hidden" name="mode" value="{{remote.mode}}">
+    <input type="hidden" id="kv" name="kv" value="{{remote.kv}}">
+    <input type="hidden" id="mode" name="mode" value="{{remote.mode}}">
     <table class="table table-bordered">
     <tr><td>First Name</td>
-    <td> <input type="text" name="fname" size="30" value="{{remote.fname}}" class="form-control">
+    <td> <input type="text" id="fname" name="fname" size="30" value="{{remote.fname}}" class="form-control">
       </td></tr>
     <tr><td>Last Name</td>
-    <td> <input type="text" name="lname" size="30" value="{{remote.lname}}" class="form-control">
+    <td> <input type="text" id="lname" name="lname" size="30" value="{{remote.lname}}" class="form-control">
       </td></tr>
     <tr><td>
       Address</td><td>
-      <input type="text" name="address" size="10" value="{{remote.address}}" class="form-control">
+      <input type="text" id="address" name="address" size="10" value="{{remote.address}}" class="form-control">
     </td></tr>
     <tr><td>
       City/St</td><td>
-      <input type="text" name="city" value="{{remote.city}}" class="form-control">
+      <input type="text" id="city" name="city" value="{{remote.city}}" class="form-control">
     </td></tr>
     <tr><td>
       Phone</td><td>
-      <input type="text" name="phone" value="{{remote.phone}}" class="form-control">
+      <input type="text" id="phone" name="phone" value="{{remote.phone}}" class="form-control">
     </td></tr>
 
     <tr><td colspan="2" align="center">
-      <input class="btn-primary" type="submit" value="{{remote.mode}}" class="form-control"/>
+      <input class="btn-primary" id="submit" type="submit" value="{{remote.mode}}" class="form-control"/>
     </td></tr>
     </table>  
     </form>
