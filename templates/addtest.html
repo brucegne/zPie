@@ -9,7 +9,8 @@
 <script>
 $(document).ready(function(){
   $("#submit").click(function(e){
-    e.preventDefault();
+    alert("Pressed");
+//    e.preventDefault();
     $.post("/adddata",
     {
       kv: $("#kv").val(),
