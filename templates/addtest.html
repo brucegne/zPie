@@ -8,9 +8,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script>
 $(document).ready(function(){
-  $("#submit").click(function(e){
-    alert("Pressed");
-//    e.preventDefault();
+  $("button").click(function(){
     $.post("/adddata",
     {
       kv: $("#kv").val(),
@@ -22,12 +20,10 @@ $(document).ready(function(){
       phone: $("#phone").val()
     },
     function(data,status){
-      alert(data);
-      window.location.href="/";
-    }
-  );
-));
-}); 
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+  });
+});  
 </script>
 </head>
 <body>
