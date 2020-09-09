@@ -7,13 +7,17 @@ import time
 from pymongo import MongoClient
 
 r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
+MONGO_URL = 'mongodb+srv://admin:Grey9beard@cluster0.ggfqf.mongodb.nethfpdata?retryWrites=true&w=majority'
+client=MongoClient(MONGO_URL)
+
+
 
 #MONGO_URL="mongodb://brucegne:p2shiver@ds043368.mongolab.com:43368/demo?retryWrites=false"
 #client=MongoClient(MONGO_URL)
 
 REDIS_URL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.com:9285/"
 
-client = pymongo.MongoClient("mongodb://admin:Grey9beard@cluster0-shard-00-00.ggfqf.mongodb.net:27017,cluster0-shard-00-01.ggfqf.mongodb.net:27017,cluster0-shard-00-02.ggfqf.mongodb.net:27017/<dbname>?ssl=true&replicaSet=atlas-ujbxlz-shard-0&authSource=admin&retryWrites=true&w=majority")
+
 
 app = Flask(__name__)
 
