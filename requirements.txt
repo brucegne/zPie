@@ -4,4 +4,5 @@ redis==3.3.11
 requests==2.22.0
 pymongo==3.9.0
 bson==0.5.8
+pyrebase==3.0.27
 airtable-python-wrapper==0.12.0

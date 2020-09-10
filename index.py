@@ -5,19 +5,23 @@ import bcrypt
 import json, os, redis
 import time
 from pymongo import MongoClient
+import pyrebase
 
 r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
-MONGO_URL = 'mongodb+srv://admin:Grey9beard@cluster0.ggfqf.mongodb.nethfpdata?retryWrites=true&w=majority'
-client=MongoClient(MONGO_URL)
-
-
-
-#MONGO_URL="mongodb://brucegne:p2shiver@ds043368.mongolab.com:43368/demo?retryWrites=false"
-#client=MongoClient(MONGO_URL)
 
 REDIS_URL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.com:9285/"
 
+config = {
+    apiKey: "AIzaSyAK2XApgMbt7DE8tXiIdn9pPMUNvZS5tCA",
+    authDomain: "socialpancakes-d1dad.firebaseapp.com",
+    databaseURL: "https://socialpancakes-d1dad.firebaseio.com",
+    projectId: "socialpancakes-d1dad",
+    storageBucket: "socialpancakes-d1dad.appspot.com",
+    messagingSenderId: "812779768104",
+    appId: "1:812779768104:web:0e83d4f73e65f1061e681d"
+}
 
+firebase = pyrebase.initialize_app(config)
 
 app = Flask(__name__)
 
