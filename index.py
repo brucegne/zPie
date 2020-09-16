@@ -5,12 +5,13 @@ import bcrypt
 import json, os, redis
 import time
 from pymongo import MongoClient
-import pyrebase
+
 
 r=redis.Redis(host='angler.redistogo.com',password='0566827014ab8c2c76bcad1ab98239a7',port=9285)
 
 REDIS_URL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.com:9285/"
 
+import pyrebase
 config = {
     apiKey: "AIzaSyAK2XApgMbt7DE8tXiIdn9pPMUNvZS5tCA",
     authDomain: "socialpancakes-d1dad.firebaseapp.com",
